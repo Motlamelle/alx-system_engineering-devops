@@ -24,7 +24,7 @@ if __name__ == "__main__":
                 'task_completed_status': '',
                 'task_title': ''
             }
-            writer = csv.DictWriter(csvfile, fieldnames=list(row.keys()))
+            writer = csv.DictWriter(csvfile, fieldnames=list(row.keys()), quotechar='"', quoting=csv.QUOTE_ALL)
             for todo in todos:
                 row['task_completed_status'] = todo['completed']
                 row['task_title'] = todo['title']
