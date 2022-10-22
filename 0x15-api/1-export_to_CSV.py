@@ -18,9 +18,8 @@ if __name__ == "__main__":
         resp = requests.get('{}/todos?userId={}'.format(BASE_URL, employee_id))
         todos = json.loads(resp.text)
         with open('{}.csv'.format(str(employee_id)), 'w') as csvfile:
-            rows = []
             row = {
-                'user_id': '', 
+                'user_id': '',
                 'username': '',
                 'task_completed_status': '',
                 'task_title': ''
@@ -31,5 +30,4 @@ if __name__ == "__main__":
                 row['task_title'] = todo['title']
                 row['user_id'] = employee['id']
                 row['username'] = employee['username']
-                rows.append(row)
-            writer.writerows(rows)
+                writer.writerow(row)
