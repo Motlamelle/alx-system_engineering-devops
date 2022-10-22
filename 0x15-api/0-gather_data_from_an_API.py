@@ -3,9 +3,9 @@
 returns information about
 employee TODO list progress
 """
-import sys
 import json
 import requests
+import sys
 
 if __name__ == "__main__":
 
