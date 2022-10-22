@@ -32,8 +32,8 @@ if __name__ == "__main__":
                 lineterminator="\n",
             )
             for todo in todos:
-                row["task_completed_status"] = todo["completed"]
+                row["task_completed_status"] = str(todo["completed"])
                 row["task_title"] = todo["title"]
-                row["user_id"] = employee["id"]
+                row["user_id"] = str(employee["id"])
                 row["username"] = employee["username"]
                 writer.writerow(row)
