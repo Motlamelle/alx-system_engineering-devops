@@ -18,22 +18,18 @@ if __name__ == "__main__":
         resp = requests.get("{}/todos?userId={}".format(BASE_URL, employee_id))
         todos = json.loads(resp.text)
         with open("{}.csv".format(str(employee_id)), "w") as csvfile:
-            row = {
-                "user_id": "",
-                "username": "",
-                "task_completed_status": "",
-                "task_title": "",
-            }
-            writer = csv.DictWriter(
+            writer = csv.writer(
                 csvfile,
-                fieldnames=list(row.keys()),
                 quotechar='"',
                 quoting=csv.QUOTE_ALL,
                 lineterminator="\n",
             )
             for todo in todos:
-                row["task_completed_status"] = str(todo["completed"])
-                row["task_title"] = todo["title"]
-                row["user_id"] = str(employee["id"])
-                row["username"] = employee["username"]
-                writer.writerow(row)
+                writer.writerow(
+                    [
+                        str(employee["id"]),
+                        employee["username"],
+                        str(todo["completed"]),
+                        todo["title"],
+                    ]
+                )
