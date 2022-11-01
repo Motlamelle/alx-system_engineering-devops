@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"How many subs?"""
+"""How many subs?"""
 
 
 def number_of_subscribers(subreddit):
@@ -7,10 +7,11 @@ def number_of_subscribers(subreddit):
     to the subreddit"""
     import requests
 
-    sub_info = requests.get("https://www.reddit.com/r/{}/about.json"
-                            .format(subreddit),
-                            headers={"User-Agent": "My-User-Agent"},
-                            allow_redirects=False)
+    sub_info = requests.get(
+        "https://www.reddit.com/r/{}/about.json".format(subreddit),
+        headers={"User-Agent": "My-User-Agent"},
+        allow_redirects=False,
+    )
     if sub_info.status_code >= 300:
         return 0
 
