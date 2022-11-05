@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Configure Nginx
+# Configure Nginx to have 404 page
 
 apt updte
 apt install -y nginx
